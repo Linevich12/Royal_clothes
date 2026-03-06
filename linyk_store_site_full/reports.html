@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Звіти</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="reports" data-marketplace="">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">Linyk Store<small>Облік продажів одягу</small></div>
+      <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="instagram.html">Instagram</a>
+        <a href="vinted.html">Vinted</a>
+        <a href="grailed.html">Grailed</a>
+        <a href="purchases.html">Журнал закупок</a>
+        <a href="reports.html">Звіти</a>
+      </nav>
+    </aside>
+    <main class="content">
+
+<section class="page-head">
+  <h1 class="page-title">Звіти</h1>
+  <p class="page-subtitle">Аналітика за <span data-month-title></span>.</p>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <div class="field">
+        <label>Оберіть місяць</label>
+        <input type="month" class="monthFilter">
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <button data-export="reports">Вигрузити в Excel</button>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card"><div class="label">Прибуток за місяць</div><div class="value" id="reportProfit">0</div></div>
+  <div class="card"><div class="label">Виручка за місяць</div><div class="value" id="reportRevenue">0</div></div>
+  <div class="card"><div class="label">Вкладено в закупку</div><div class="value" id="reportInvestment">0</div></div>
+  <div class="card"><div class="label">Експорт</div><div class="value" style="font-size:22px">CSV / Excel</div></div>
+</section>
+
+<section class="grid-2">
+  <div class="panel">
+    <h2>Прибуток по місяцях</h2>
+    <div class="chart" id="profitChart"></div>
+    <div class="footer-note">На графіку показано останні доступні місяці з продажами.</div>
+  </div>
+  <div class="panel">
+    <h2>Продажі по маркетплейсах</h2>
+    <div class="table-wrap">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>Маркетплейс</th>
+            <th>Кількість продажів</th>
+            <th>Виручка</th>
+            <th>Прибуток</th>
+          </tr>
+        </thead>
+        <tbody id="marketReportBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel section-space">
+  <h2>Найприбутковіші товари</h2>
+  <div class="table-wrap">
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Назва товару</th>
+          <th>Кількість продажів</th>
+          <th>Виручка</th>
+          <th>Прибуток</th>
+        </tr>
+      </thead>
+      <tbody id="topProductsBody"></tbody>
+    </table>
+  </div>
+</section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Журнал закупок</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="purchases" data-marketplace="">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">Linyk Store<small>Облік продажів одягу</small></div>
+      <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="instagram.html">Instagram</a>
+        <a href="vinted.html">Vinted</a>
+        <a href="grailed.html">Grailed</a>
+        <a href="purchases.html">Журнал закупок</a>
+        <a href="reports.html">Звіти</a>
+      </nav>
+    </aside>
+    <main class="content">
+
+<section class="page-head">
+  <h1 class="page-title">Журнал закупок</h1>
+  <p class="page-subtitle">Закупки за <span data-month-title></span>.</p>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <div class="field">
+        <label>Оберіть місяць</label>
+        <input type="month" class="monthFilter">
+      </div>
+      <div class="field">
+        <label>Пошук</label>
+        <input type="text" id="purchaseSearch" placeholder="Назва товару або джерело">
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <button data-export="purchases">Вигрузити в Excel</button>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card"><div class="label">Кількість закупок</div><div class="value" id="purchaseCount">0</div></div>
+  <div class="card"><div class="label">Вкладено в закупку</div><div class="value" id="purchaseTotal">0</div></div>
+  <div class="card"><div class="label">Поле "Назва товару"</div><div class="value" style="font-size:22px">Додано</div></div>
+  <div class="card"><div class="label">Фільтр по місяцю</div><div class="value" style="font-size:22px">Активний</div></div>
+</section>
+
+<section class="panel">
+  <h2 id="purchaseFormTitle">Додати закупку</h2>
+  <form id="purchaseForm">
+    <input type="hidden" id="purchaseId">
+    <div class="form-grid compact">
+      <div class="field">
+        <label>Назва товару</label>
+        <input id="purchaseProductName" required placeholder="Наприклад, Carhartt jacket">
+      </div>
+      <div class="field">
+        <label>Дата</label>
+        <input id="purchaseDate" type="date" required>
+      </div>
+      <div class="field">
+        <label>Джерело закупки</label>
+        <input id="purchaseSource" placeholder="Секонд, Instagram seller..." required>
+      </div>
+      <div class="field">
+        <label>Ціна</label>
+        <input id="purchasePrice" type="number" min="0" required placeholder="0">
+      </div>
+    </div>
+    <div class="actions section-space">
+      <button type="submit">Зберегти</button>
+      <button type="button" class="secondary" id="cancelEditPurchase">Очистити</button>
+    </div>
+  </form>
+</section>
+
+<section class="panel section-space">
+  <h2>Список закупок</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Назва товару</th>
+          <th>Дата</th>
+          <th>Джерело закупки</th>
+          <th>Ціна</th>
+          <th>Дії</th>
+        </tr>
+      </thead>
+      <tbody id="purchaseBody"></tbody>
+    </table>
+  </div>
+</section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

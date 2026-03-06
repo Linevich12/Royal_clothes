@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна панель</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="dashboard" data-marketplace="">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">Linyk Store<small>Облік продажів одягу</small></div>
+      <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="instagram.html">Instagram</a>
+        <a href="vinted.html">Vinted</a>
+        <a href="grailed.html">Grailed</a>
+        <a href="purchases.html">Журнал закупок</a>
+        <a href="reports.html">Звіти</a>
+      </nav>
+    </aside>
+    <main class="content">
+
+<section class="page-head">
+  <h1 class="page-title">Головна панель</h1>
+  <p class="page-subtitle">Огляд продажів за <span data-month-title></span>.</p>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <div class="field">
+        <label>Оберіть місяць</label>
+        <input type="month" class="monthFilter">
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <button data-export="dashboard">Вигрузити в Excel</button>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card"><div class="label">Продажів за місяць</div><div class="value" id="salesCount">0</div></div>
+  <div class="card"><div class="label">Виручка</div><div class="value" id="revenue">0</div></div>
+  <div class="card"><div class="label">Прибуток</div><div class="value" id="profit">0</div></div>
+  <div class="card"><div class="label">Вкладено в закупку</div><div class="value" id="investment">0</div></div>
+</section>
+
+<section class="grid-2">
+  <div class="panel">
+    <h2>Останні продажі</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Назва товару</th>
+            <th>Маркетплейс</th>
+            <th>Дата</th>
+            <th>Ціна продажу</th>
+            <th>Ціна закупки</th>
+            <th>Чистий прибуток</th>
+          </tr>
+        </thead>
+        <tbody id="recentSalesBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Продажі по маркетплейсах</h2>
+    <div class="kpi-list" id="marketOverview"></div>
+    <div class="footer-note">Показані суми виручки по кожному маркетплейсу за вибраний місяць.</div>
+  </div>
+</section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

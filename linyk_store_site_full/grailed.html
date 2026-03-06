@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grailed</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="sales" data-marketplace="Grailed">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">Linyk Store<small>Облік продажів одягу</small></div>
+      <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="instagram.html">Instagram</a>
+        <a href="vinted.html">Vinted</a>
+        <a href="grailed.html">Grailed</a>
+        <a href="purchases.html">Журнал закупок</a>
+        <a href="reports.html">Звіти</a>
+      </nav>
+    </aside>
+    <main class="content">
+
+<section class="page-head">
+  <h1 class="page-title">Grailed</h1>
+  <p class="page-subtitle">Продажі за <span data-month-title></span>.</p>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <div class="field">
+        <label>Оберіть місяць</label>
+        <input type="month" class="monthFilter">
+      </div>
+      <div class="field">
+        <label>Пошук по товару</label>
+        <input type="text" id="searchInput" placeholder="Введи назву товару">
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <button data-export="sales">Вигрузити в Excel</button>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card"><div class="label">Кількість продажів</div><div class="value" id="salesCount">0</div></div>
+  <div class="card"><div class="label">Виручка</div><div class="value" id="revenue">0</div></div>
+  <div class="card"><div class="label">Чистий прибуток</div><div class="value" id="profit">0</div></div>
+  <div class="card"><div class="label">Маркетплейс</div><div class="value" style="font-size:24px">Grailed</div></div>
+</section>
+
+<section class="panel">
+  <h2 id="formTitle">Додати продаж</h2>
+  <form id="saleForm">
+    <input type="hidden" id="saleId">
+    <input type="hidden" id="marketplaceFixed">
+    <div class="form-grid">
+      <div class="field">
+        <label>Назва товару</label>
+        <input id="productName" required placeholder="Наприклад, Nike hoodie">
+      </div>
+      <div class="field">
+        <label>Дата продажу</label>
+        <input id="saleDate" type="date" required>
+      </div>
+      <div class="field">
+        <label>Ціна продажу</label>
+        <input id="salePrice" type="number" min="0" required placeholder="0">
+      </div>
+      <div class="field">
+        <label>Ціна закупки</label>
+        <input id="purchasePrice" type="number" min="0" required placeholder="0">
+      </div>
+    </div>
+    <div class="actions section-space">
+      <button type="submit">Зберегти</button>
+      <button type="button" class="secondary" id="cancelEditSale">Очистити</button>
+    </div>
+  </form>
+</section>
+
+<section class="panel section-space">
+  <h2>Список продажів</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Назва товару</th>
+          <th>Дата</th>
+          <th>Ціна продажу</th>
+          <th>Ціна закупки</th>
+          <th>Чистий прибуток</th>
+          <th>Дії</th>
+        </tr>
+      </thead>
+      <tbody id="salesBody"></tbody>
+    </table>
+  </div>
+</section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
